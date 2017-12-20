@@ -37,7 +37,7 @@ settings =
 	},
 
 	plugins = {  
-        ['plugin.ui_framework'] = {publisherId = 'com.skyjoy'}
+        ['plugin.app_framework'] = {publisherId = 'maciej.czekala'}
     }
 
 	
