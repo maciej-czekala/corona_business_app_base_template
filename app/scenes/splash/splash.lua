@@ -7,13 +7,13 @@ function scene.new(viewGroup, controler, viewControler, params)
 	-- Imports
 	-------------
 	-- declair model with set of items
-	local model = app:Model(
+	local model = app.Model(
 		{
 			title = "string"
 		})
 
 	-- set value for model item
-	model:set("title", "SPLASH")
+	model.set("title", "SPLASH")
 
 	-------------
 	-- Scene helpers
@@ -42,7 +42,7 @@ function scene.new(viewGroup, controler, viewControler, params)
 
 		timer.performWithDelay( 1000, 
 			function()
-				app:goTo("home")
+				app.goTo("home")
 			end)
 	end
 

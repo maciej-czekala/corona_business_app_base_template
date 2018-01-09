@@ -7,7 +7,7 @@ local function View(controler, model)
 
 	local bg = display.newRect( sceneGroup, _w*.5, _h*.5, _w, _h )
 	
-	local title = display.newText( {parent = sceneGroup, text = model:get("title"), x = bg.x, y = bg.y } )
+	local title = display.newText( {parent = sceneGroup, text = model.get("title"), x = bg.x, y = bg.y } )
 	title:setFillColor( 0 )
 
 	return sceneGroup

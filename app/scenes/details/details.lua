@@ -7,7 +7,7 @@ function scene.new(viewGroup, controler, viewControler, params)
 	-- Imports
 	-------------
 	-- declair model with set of items
-	local model = app:Model(
+	local model = app.Model(
 		{
 			title = "string"
 		})
@@ -18,7 +18,7 @@ function scene.new(viewGroup, controler, viewControler, params)
 		_devide_info = _devide_info .. k .. " / " .. tostring(v) .. "\n"
 	end
 	-- set value for model item
-	model:set("title", _devide_info)
+	model.set("title", _devide_info)
 
 	-------------
 	-- Scene helpers
@@ -34,7 +34,7 @@ function scene.new(viewGroup, controler, viewControler, params)
 	--Functions
 	------------ 
 	function controler.backCallback()
-		app:goBack()
+		app.goBack()
 	end
 
 

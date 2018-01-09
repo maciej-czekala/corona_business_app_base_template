@@ -7,8 +7,8 @@
 ------------------------------------------------------------
 display.setDefault( "background", 1, 1, 1 )
 app = require ("plugin.app_framework")
-app:init()
-app:goTo("splash", {effect = "none"})
+app.init()
+app.goTo("splash", {effect = "none"})
 
 -- ui =  require ("plugin.ui_framework")
 -- ui:init()
