@@ -1,4 +1,5 @@
 local scene = {}
+local View = require("app.scenes.force_update.force_update_view")
 
 function scene.new(viewGroup, controler, viewControler, params)
 --==========================================--
@@ -19,31 +20,28 @@ function scene.new(viewGroup, controler, viewControler, params)
 	------------
 	--Functions
 	------------ 
-	function controler.onRowTouch(e)
-		app.goTo(e.target.data.scene)
+	function controler.backTouched()
+		app.goBack()
 	end
+
 
 --==========================================--
 	--------------
 	-- Scene init
 	--------------
 	function controler.onCreate()
-		require(params.viewFilePath)(viewGroup, controler, viewControler, config)
-
-		viewControler.addItems({
-				{title = "Splash screen", scene = "splash" },
-				{title = "Login screen", scene = "login"},
-				{title = "Force app update", scene = "force_update"},
-				{title = "search", scene = "search"},
-
-
-			})
+		local splashView = View(controler, model)
+		viewGroup:insertScene(splashView)
 	end
 
 	function controler.onShow()
-
+		print("splash show")
 	end
 
+	function controler.onAndroidBackButtonPressed()
+		-- controler.backTouched()
+	end
+	
 	--------------
 	-- Clean Scene
 	--------------

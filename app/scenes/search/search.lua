@@ -5,6 +5,13 @@ function scene.new(viewGroup, controler, viewControler, params)
 	-------------
 	-- Imports
 	-------------
+	-- declair model with set of items
+	local model = app.Model(
+		{
+			items = "table"
+		})
+
+	-- set value for model item
 
 	-------------
 	-- Scene helpers
@@ -19,29 +26,42 @@ function scene.new(viewGroup, controler, viewControler, params)
 	------------
 	--Functions
 	------------ 
-	function controler.onRowTouch(e)
-		app.goTo(e.target.data.scene)
+	function controler.backTouched()
+		viewControler.removeFocus()
+		app.goBack({effect = "fade", time = 200})
 	end
+
+
+	function controler.submittedCallback(query)
+		if query and query ~= "" then
+			viewControler.showLoader()
+			viewControler.hideNoResultsInfo()
+			-- todo get data from API
+			
+		end		
+	end
+
+	function controler.onRowTouch(e)
+		if e.target.isRow then
+			-- app.goTo("asset",{params = { } })
+		end
+	end
+
 
 --==========================================--
 	--------------
 	-- Scene init
 	--------------
 	function controler.onCreate()
-		require(params.viewFilePath)(viewGroup, controler, viewControler, config)
-
-		viewControler.addItems({
-				{title = "Splash screen", scene = "splash" },
-				{title = "Login screen", scene = "login"},
-				{title = "Force app update", scene = "force_update"},
-				{title = "search", scene = "search"},
-
-
-			})
+		require(params.viewFilePath)(viewGroup, controler, viewControler, model)
 	end
 
 	function controler.onShow()
 
+	end
+
+	function controler.onAndroidBackButtonPressed()
+	
 	end
 
 	--------------

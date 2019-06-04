@@ -13,7 +13,7 @@ function scene.new(viewGroup, controler, viewControler, params)
 		})
 
 	-- set value for model item
-	model.set("title", "SPLASH")
+	model.set("title", "v. 1.0")
 
 	-------------
 	-- Scene helpers
@@ -37,8 +37,7 @@ function scene.new(viewGroup, controler, viewControler, params)
 	--------------
 	function controler.onCreate()
 		print("splash created")
-		local splashView = View(controler, model)
-		viewGroup:insertScene(splashView)
+		require(params.viewFilePath)(viewGroup, controler, viewControler, model)
 
 		timer.performWithDelay( 1000, 
 			function()

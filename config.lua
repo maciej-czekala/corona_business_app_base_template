@@ -3,13 +3,13 @@ application =
 {
 	content = 
 	{
-		scale = "adaptive",
+		-- scale = "adaptive",
 		fps = 60,
-		imageSuffix =
-		{
-			["@2x"] = 1.3,
-			["@3x"] = 2.6,
-		}
+		-- imageSuffix =
+		-- {
+		-- 	["@2x"] = 1.3,
+		-- 	["@3x"] = 2.6,
+		-- }
 	},
     notification = 
     {
