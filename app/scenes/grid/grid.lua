@@ -19,26 +19,17 @@ function scene.new(viewGroup, controler, viewControler, params)
 	------------
 	--Functions
 	------------ 
-	function controler.onRowTouch(e)
-		app.goTo(e.target.data.scene)
+	function controler.goBack()
+		app.goBack({params = params})
 	end
+
 
 --==========================================--
 	--------------
 	-- Scene init
 	--------------
 	function controler.onCreate()
-		require(params.viewFilePath)(viewGroup, controler, viewControler, config)
-
-		viewControler.addItems({
-				{title = "Splash screen", scene = "splash" },
-				{title = "Login screen", scene = "login"},
-				{title = "Force app update", scene = "force_update"},
-				{title = "Search", scene = "search"},
-				{title = "Grid", scene = "grid"},
-
-
-			})
+		require(params.viewFilePath)(viewGroup, controler, viewControler)
 	end
 
 	function controler.onShow()
@@ -50,6 +41,10 @@ function scene.new(viewGroup, controler, viewControler, params)
 	--------------
 	function controler.onDestroy()
 
+	end
+
+	function controler.onAndroidBackButtonPressed()
+		controler.goBack()
 	end
 end
 
